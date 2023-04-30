@@ -38,7 +38,7 @@ app.post("/", function (req, res) {
 
   const options = {
     method: "POST",
-    auth: "adam:393987f40d19517fb3e5ca40a3f37071-us21",
+    auth: "adam:a393987f40d19517fb3e5ca40a3f37071-us21",
   };
   const requestToMailchimp = https.request(url, options, function (resp) {
     resp.on("data", function (data) {
@@ -57,6 +57,11 @@ app.post("/", function (req, res) {
   requestToMailchimp.end();
   console.log(firstName, lastName, email);
 });
+
+
+app.post("/failure", function (req, res){
+  res.redirect("/")
+})
 app.listen(3000, function () {
   console.log("Listening at port 3000");
 });
