@@ -38,7 +38,7 @@ app.post("/", function (req, res) {
 
   const options = {
     method: "POST",
-    auth: "adam:a9a53f05f0d80f16b36868775459a6ce5-us21",
+    auth: "adam:393987f40d19517fb3e5ca40a3f37071-us21",
   };
   const requestToMailchimp = https.request(url, options, function (resp) {
     resp.on("data", function (data) {
@@ -46,10 +46,10 @@ app.post("/", function (req, res) {
     });
 
   if (resp.statusCode ===200){
-    res.send("Success!")
+    res.sendFile(__dirname+"/success.html")
   }
   else{
-    res.send("Failure!")
+    res.sendFile(__dirname+"/failure.html")
   }
   });
 
@@ -62,6 +62,6 @@ app.listen(3000, function () {
 });
 
 // api key
-// 9a53f05f0d80f16b36868775459a6ce5-us21
+// 393987f40d19517fb3e5ca40a3f37071-us21
 // audience/list id
 // 10553b41be
